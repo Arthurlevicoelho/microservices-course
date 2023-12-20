@@ -22,7 +22,6 @@ target/
 ### eclipse ###
 .metadata
 
-
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
