@@ -23,7 +23,7 @@ public class WorkerResource {
     @Autowired
     private WorkerRepository repository;
 
-    @GetMapping("/")
+    @GetMapping()
     public ResponseEntity<List<Worker>> findAll(){
         List<Worker> list = repository.findAll();
 
@@ -35,7 +35,7 @@ public class WorkerResource {
         return ResponseEntity.ok(obj);
     }
 
-    @PostMapping("/")
+    @PostMapping()
     public ResponseEntity create(@RequestBody Worker worker){
         var user = repository.findByName(worker.getName());
 
