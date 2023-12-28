@@ -12,7 +12,7 @@ import com.arthurlevi.payroll.entities.Worker;
 
 
 @Component
-@FeignClient(name = "hr-worker", url = "localhost:8001",path = "/worker")
+@FeignClient(name = "hr-worker",path = "/worker")
 public interface WorkerFeignClient {
 	
 	@GetMapping(value = "/{id}")
