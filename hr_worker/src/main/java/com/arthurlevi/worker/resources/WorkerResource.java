@@ -16,12 +16,24 @@ import org.springframework.web.bind.annotation.RestController;
 import com.arthurlevi.worker.entities.Worker;
 import com.arthurlevi.worker.repositories.WorkerRepository;
 
+import reactor.util.Logger;
+import reactor.util.Loggers;
+
 @RestController
 @RequestMapping(value = "/worker")
 public class WorkerResource {
 
+	
+	
     @Autowired
     private WorkerRepository repository;
+    
+    @GetMapping("/configs")
+    public ResponseEntity<Void> config(){
+        List<Worker> list = repository.findAll();
+
+        return ResponseEntity.noContent().build();
+    }
 
     @GetMapping()
     public ResponseEntity<List<Worker>> findAll(){
