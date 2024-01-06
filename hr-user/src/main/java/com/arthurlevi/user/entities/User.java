@@ -8,6 +8,7 @@ import java.util.UUID;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
@@ -19,8 +20,8 @@ import jakarta.persistence.Table;
 public class User {
 
 	@Id
-    @GeneratedValue(generator = "UUID")
-	private UUID id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String name;
 	private String email;
 	private String password;
@@ -35,7 +36,7 @@ public class User {
 	public User() {
 	}	
 
-	public User(UUID id, String name, String email, String password) {
+	public User(Long id, String name, String email, String password) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
@@ -44,7 +45,7 @@ public class User {
 
 
 
-	public UUID getId() {
+	public Long getId() {
 		return id;
 	}
 

@@ -1,10 +1,10 @@
 package com.arthurlevi.user.entities;
 
 import java.util.Objects;
-import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -13,19 +13,19 @@ import jakarta.persistence.Table;
 public class Role {
 
 	@Id
-	@GeneratedValue(generator = "UUID")
-	private UUID id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String roleName;
 
 	public Role() {
 	}
 
-	public Role(UUID id, String roleName) {
+	public Role(Long id, String roleName) {
 		this.id = id;
 		this.roleName = roleName;
 	}
 
-	public UUID getId() {
+	public Long getId() {
 		return id;
 	}
 
