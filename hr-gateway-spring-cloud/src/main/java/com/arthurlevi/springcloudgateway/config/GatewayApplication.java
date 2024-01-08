@@ -17,7 +17,12 @@ public class GatewayApplication {
 			    .route( "hr-payroll" , r -> r.path( "/hr-payroll/**" ) 
 			      .filters(f -> f.stripPrefix( 1 )) 
 			      .uri( "lb://HR-PAYROLL" ))
-			    .route("hr-user", r -> r.path("/hr-user/**").filters(f -> f.stripPrefix( 1 )).uri("lb://HR-USER"))
+			    .route("hr-user", r -> r.path("/hr-user/**")
+			      .filters(f -> f.stripPrefix( 1 ))
+			      .uri("lb://HR-USER"))
+			    .route("hr-oauth", r-> r.path("/hr-oauth/**")
+			      .filters(f -> f.stripPrefix( 1 ))
+			      .uri("lb://HR-OAUTH"))
 			    .build(); 
 			  } 
 
