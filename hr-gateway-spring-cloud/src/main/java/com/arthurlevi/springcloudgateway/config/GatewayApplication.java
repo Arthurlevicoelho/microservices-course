@@ -21,7 +21,7 @@ public class GatewayApplication {
 			      .filters(f -> f.stripPrefix( 1 ))
 			      .uri("lb://HR-USER"))
 			    .route("hr-oauth", r-> r.path("/hr-oauth/**")
-			      .filters(f -> f.stripPrefix( 1 ))
+			      .filters(f -> f.stripPrefix( 1 ).removeResponseHeader("Cookie").removeResponseHeader("Set-Cookie"))
 			      .uri("lb://HR-OAUTH"))
 			    .build(); 
 			  } 
